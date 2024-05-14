@@ -60,7 +60,7 @@ function CreateCourse() {
           type="file"
           label="Upload Thumbnail"
           className=" lg:col-span-2"
-          accept="image/png, image/jpg, image/jpeg, image/gif"
+          accept="image/png, image/jpg, image/jpeg, image/gif, image/webp"
           onChange = {handleImage}
         />
         <Input type="text" placeholder="e.g. Frontend Development" label="Title"
