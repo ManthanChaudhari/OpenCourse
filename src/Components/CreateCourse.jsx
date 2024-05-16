@@ -3,6 +3,7 @@ import Input from "./Reusable/Input";
 import Button from "./Reusable/Button";
 import fileServices from "../appwrite/file";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 function CreateCourse() {
@@ -12,6 +13,8 @@ function CreateCourse() {
   const [thumbnail , setThumbnail] = useState("");
   const [error , setError] = useState("");
   const [pending , setPending] = useState(false);
+  const [user , setUser] = useState("");
+  const userData = useSelector(state => state.userData);
   const navigate = useNavigate();
   const clearAll = () => {
     setTitle("");
@@ -36,7 +39,7 @@ function CreateCourse() {
     try {
       if(title && description && syllabus && thumbnail){
         setPending(true);
-        const course = await fileServices.createCourse({title,description,syllabus,thumbnail});
+        const course = await fileServices.createCourse({title,description,syllabus,thumbnail,userId : userData.$id,name:userData.name});
         if(course){
           setPending(false);
           navigate(`/course-page/${course.$id}`);
@@ -53,9 +56,9 @@ function CreateCourse() {
     }
   }
   return (
-    <div className="h-screen w-full flex justify-center items-center mt-5">
+    <div className="h-screen w-full flex justify-center items-center">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:w-[600px] lg:p-4 lg:border-2">
-       {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+       {error && <p className="text-red-500 text-sm text-center">{`Error ocurred : ${error}`}</p>}
         <Input
           type="file"
           label="Upload Thumbnail"

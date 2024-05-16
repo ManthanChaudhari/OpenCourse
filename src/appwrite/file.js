@@ -1,4 +1,4 @@
-import { Client , Databases , ID, Storage } from "appwrite";
+import { Client , Databases , ID, Query, Storage } from "appwrite";
 import config from "./config";
 class FileService{
     client = new Client();
@@ -12,7 +12,7 @@ class FileService{
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
     }
-   async createCourse({title,description,syllabus,thumbnail}){
+   async createCourse({title,description,syllabus,thumbnail,userId = "",name = ""}){
         try {
             return await this.databases.createDocument(
                 config.appwriteDatabaseId,
@@ -23,6 +23,8 @@ class FileService{
                     description,
                     syllabus,
                     thumbnail,
+                    userId,
+                    name
                 }
             )
         } catch (error) {
@@ -57,7 +59,7 @@ class FileService{
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId,
-                config.appwriteCollectionId
+                config.appwriteCollectionId,
             )
         } catch (error) {
             console.log("getAllFiles :: " , error.message);

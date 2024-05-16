@@ -31,7 +31,7 @@ function CoursePage() {
     <div className='h-screen w-full justify-center items-center text-black'>
     {error && <p className='text-red-500'>{error.message}</p>}
     {cardDetail && 
-      <CourseCard thumbnail={cardDetail.thumbnail} description={cardDetail.description} title={cardDetail.title} syllabus={cardDetail.syllabus}/>
+      <CourseCard thumbnail={cardDetail.thumbnail} description={cardDetail.description} title={cardDetail.title} syllabus={cardDetail.syllabus} userId = {cardDetail.userId} documentId = {documentId}  name = {cardDetail.name}/>
     }
     </div>
   ) : <div className='h-screen w-full flex justify-center items-center text-black'>

@@ -25,8 +25,8 @@ function Header() {
     navigate("/profile")
   }
   return (
-    <nav className="bg-blue-500 shadow-lg px-2 py-3 flex justify-between items-center fixed top-0 left-0 w-full ">
-      <h1 className="text-2xl font-oswald text-white">LearnOnline</h1>
+    <nav className="bg-blue-600 shadow-lg px-2 py-3 flex justify-between items-center fixed top-0 left-0 w-full ">
+      <h1 className="text-2xl font-oswald text-white">OpenCourse</h1>
       <div className="flex gap-x-3 items-center">
         {
           <ul>
