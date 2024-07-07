@@ -35,6 +35,7 @@ function Profile({ className = "" }) {
         <Button
           innertext={"My Courses"}
           className="text-blue-500 active:text-blue-400"
+          clickFunc={() => navigate("/my-course")}
         />
         <Button
           innertext={"Create a Course"}

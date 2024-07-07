@@ -11,6 +11,7 @@ import store from './store/store.js'
 import Profile from './Components/Profile.jsx'
 import CreateCourse from './Components/CreateCourse.jsx'
 import CoursePage from './Components/CoursePage.jsx'
+import MyCourses from './Components/MyCourses.jsx'
 const router = createBrowserRouter([
   {
     path : "/",
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path : "course-page/:documentId",
         element : <CoursePage/>
+      },
+      {
+        path : "my-course",
+        element : <MyCourses/>
       }
     ]
   }

@@ -4,9 +4,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import { signIn } from "./store/authSlice";
-import CourseCard from "./Components/Reusable/CourseCard";
-import MainCard from "./Components/Reusable/MainCard";
-import AllCourses from "./Components/AllCourses";
+
 
 
 function App() {
