@@ -30,7 +30,7 @@ function MyCourses() {
       }
     }
       filterCourses();
-    },[userData.$id])
+    },[])
   return  !loading  ?  (
     <div>
     {error && <p className='text-red-500 text-center'>{error}</p>}

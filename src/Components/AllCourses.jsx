@@ -12,7 +12,6 @@ function AllCourses() {
     const[loading , setLoading] = useState(false);
     const [error , setError] = useState("");
     const navigate = useNavigate();
-    const dispatch =  useDispatch();
     const userData = useSelector(state => state.userData);
     
     useEffect(() => {
@@ -22,8 +21,6 @@ function AllCourses() {
             const course  =  await fileServices.getAllCourses();
             if(course){
                 setCourses(course.documents);
-                console.log(userData);
-                dispatch(filterMyCourses(course.documents.filter((course) => userData.$id === course.userId)));
                 setLoading(false);
             }
         } catch (error) {
@@ -34,7 +31,7 @@ function AllCourses() {
       }
     }
         allCourses();
-    },[userData.$id])
+    },[])
     
   return !loading  ? (
     <div className='w-full py-20  px-4 gap-x-4 gap-y-4 grid grid-cols-1 lg:grid-cols-4'>
